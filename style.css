@@ -1,0 +1,520 @@
+/* ==========================================================================
+   PERSONAL PROFILE STYLESHEET (style.css)
+   Author: Sparsh Sharma
+   Course: Information Technology, MIT Manipal
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* CSS Box Model: includes padding and border in total width */
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling when clicking navigation anchors */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #334155;          /* Neutral dark slate text */
+    background-color: #f8fafc; /* Crisp, light off-white background */
+    line-height: 1.6;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   2. REUSABLE CONTAINER & SECTION LAYOUTS
+   -------------------------------------------------------------------------- */
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 20px;
+}
+
+/* Alternating background color for visual distinction between sections */
+.section-alt {
+    background-color: #f1f5f9;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+/* Small accent bar underneath section titles */
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background-color: #2563eb; /* Primary accent blue */
+    margin: 0 auto 16px auto;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+/* General Card Design */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Subtle lift on hover */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   3. NAVIGATION BAR (STICKY HEADER)
+   -------------------------------------------------------------------------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-brand span {
+    color: #2563eb; /* Blue dot accent */
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+    background-color: #eff6ff;
+}
+
+/* --------------------------------------------------------------------------
+   4. HOME / HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+    padding: 90px 20px 70px 20px;
+    background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+    text-align: center;
+}
+
+.hero-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Circular Profile Image */
+.profile-img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;          /* Makes image a circle */
+    object-fit: cover;           /* Prevents distortion */
+    border: 5px solid #ffffff;   /* Clean white outline */
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.18); /* Soft colored shadow */
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.04);
+}
+
+.hero-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.hero-intro {
+    font-size: 1.15rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.btn-secondary:hover {
+    background-color: #eff6ff;
+    border-color: #93c5fd;
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   5. ABOUT ME SECTION
+   -------------------------------------------------------------------------- */
+.about-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 36px 40px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.about-card p {
+    font-size: 1.05rem;
+    color: #475569;
+    margin-bottom: 18px;
+    line-height: 1.8;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. EDUCATION SECTION
+   -------------------------------------------------------------------------- */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.education-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+.status-current {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-completed {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.institution {
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 14px;
+    font-size: 1rem;
+}
+
+.edu-detail {
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   7. SKILLS SECTION
+   -------------------------------------------------------------------------- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px;
+}
+
+.skill-category-title {
+    font-size: 1.15rem;
+    color: #0f172a;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+/* Flexbox container for skill tags */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    padding: 7px 15px;
+    border-radius: 24px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   8. INTERESTS & HOBBIES SECTION
+   -------------------------------------------------------------------------- */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.interest-card {
+    text-align: center;
+}
+
+.interest-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+}
+
+.interest-card p {
+    color: #64748b;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   9. CONTACT & SOCIALS SECTION
+   -------------------------------------------------------------------------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.contact-card {
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.contact-handle {
+    color: #64748b;
+    font-size: 0.92rem;
+    margin: 6px 0 16px 0;
+    word-break: break-all;
+}
+
+.contact-action {
+    color: #2563eb;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.contact-card:hover .contact-action {
+    text-decoration: underline;
+    transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   10. FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+    margin-top: auto;
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 30px 20px;
+    font-size: 0.92rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.back-to-top {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.back-to-top:hover {
+    color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   11. RESPONSIVE DESIGN (MEDIA QUERIES)
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 0.88rem;
+        padding: 4px 8px;
+    }
+
+    .hero-name {
+        font-size: 2rem;
+    }
+
+    .hero-intro {
+        font-size: 1.02rem;
+    }
+
+    .profile-img {
+        width: 145px;
+        height: 145px;
+    }
+
+    .section {
+        padding: 55px 16px;
+    }
+
+    .about-card {
+        padding: 24px;
+    }
+
+    .education-grid,
+    .skills-grid,
+    .interests-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Small Mobile Screens (<= 480px) */
+@media (max-width: 480px) {
+    .hero-name {
+        font-size: 1.75rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
